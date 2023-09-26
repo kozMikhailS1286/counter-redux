@@ -1,26 +1,21 @@
+import {useSelector} from 'react-redux';
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {AppStateType} from "./state/store";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const value = useSelector<AppStateType, number>(state => state.counter.value)
+
+const incHandler = () => {
+
+}
+    return (
+        <div className="App">
+            <h1> {value} </h1>
+            <button onClick={incHandler}>inc</button>
+        </div>
+    );
 }
 
 export default App;
