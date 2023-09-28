@@ -1,18 +1,19 @@
-import {useDispatch, useSelector} from 'react-redux';
+import {useSelector} from 'react-redux';
 import React from 'react';
 import './App.css';
-import {AppStateType} from "./state/store";
-import {incValueAC} from "./state/counterReducer";
+import {AppStateType, useAppDispatch} from "./state/store";
+import {incValueTC} from "./state/counterReducer";
 
 function App() {
 
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
     const value = useSelector<AppStateType, number>(state => state.counter.value)
 
-const incHandler = () => {
-    dispatch(incValueAC())
-}
+    const incHandler = () => {
+        dispatch(incValueTC(value+1))
+    }
+
     return (
         <div className="App">
             <h1> {value} </h1>

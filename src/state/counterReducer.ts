@@ -1,3 +1,6 @@
+import {Dispatch} from "redux";
+
+
 const initialState = {
     value: 0
 }
@@ -27,7 +30,15 @@ export const incValueAC = () => ({type: 'INC-VALUE'} as const)
 export const incValueFromLocalStorageAC = (value: number) => ({type: 'INC-VALUE-FROM-LOCAl-STORAGE', value} as const)
 
 
+
 export type incActionType = ReturnType<typeof incValueAC>
 export type incActionFromLocalStorageType = ReturnType<typeof incValueFromLocalStorageAC>
+
+
+// thunk
+export const incValueTC = (value: number) => (dispatch: Dispatch) => {
+    localStorage.setItem('counterValue', JSON.stringify(value))
+    dispatch(incValueAC())
+}
 
 type ActionType = incActionType | incActionFromLocalStorageType
