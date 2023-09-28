@@ -2,7 +2,8 @@ import {useSelector} from 'react-redux';
 import React from 'react';
 import './App.css';
 import {AppStateType, useAppDispatch} from "./state/store";
-import {incValueTC} from "./state/counterReducer";
+import {incValueAC} from "./state/counterReducer";
+
 
 function App() {
 
@@ -11,7 +12,7 @@ function App() {
     const value = useSelector<AppStateType, number>(state => state.counter.value)
 
     const incHandler = () => {
-        dispatch(incValueTC(value+1))
+        dispatch(incValueAC())
     }
 
     return (

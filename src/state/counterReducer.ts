@@ -36,9 +36,9 @@ export type incActionFromLocalStorageType = ReturnType<typeof incValueFromLocalS
 
 
 // thunk
-export const incValueTC = (value: number) => (dispatch: Dispatch) => {
-    localStorage.setItem('counterValue', JSON.stringify(value))
-    dispatch(incValueAC())
-}
+// export const incValueTC = (value: number) => (dispatch: Dispatch) => {
+//     localStorage.setItem('counterValue', JSON.stringify(value))
+//     dispatch(incValueAC())
+// }
 
 type ActionType = incActionType | incActionFromLocalStorageType

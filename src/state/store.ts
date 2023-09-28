@@ -13,4 +13,9 @@ export const store = createStore(rootReducer, applyMiddleware(thunk));
 
 export const useAppDispatch = () => useDispatch<ThunkDispatch<AppStateType, any, AnyAction>>()
 
+store.subscribe(() => {
+    localStorage.setItem('app-state', JSON.stringify(store.getState()))
+})
+
+
 export type AppStoreType = typeof store
